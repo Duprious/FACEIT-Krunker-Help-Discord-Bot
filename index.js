@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const intents = new Discord.Intents(32767);
 const bot = new Discord.Client({ intents });
-require('dotenv').config();
 
 const Faceit = require("faceit-js-api");
 const faceit = new Faceit(process.env.FACEITAPIKEY);
@@ -17,7 +16,7 @@ process.on('uncaughtException', function (err) {
  });
 
 bot.on('ready', () =>{
-   console.log('Online')
+   console.log('Bot Online')
    bot.user.setActivity('FACEIT', { type: 'PLAYING' });
    db.set(`timer`, { time: 0})
 })
