@@ -457,9 +457,6 @@ bot.on('messageCreate', async msg=>{
 
       break;
 
-      case 'tournaments':
-         tournaments()
-
    }
 
 })
