@@ -8,6 +8,9 @@
   },
   "keywords": [],
   "author": "Duprious",
+  "engines": {
+    "node": "16.7.0" 
+  },
   "license": "ISC",
   "dependencies": {
     "@cstools-app/faceit-wrapper": "^0.0.3",
