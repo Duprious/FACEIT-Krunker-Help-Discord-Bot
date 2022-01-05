@@ -361,7 +361,7 @@ bot.on('messageCreate', async msg=>{
                   .then(msg => {
                      setTimeout(() => msg.delete(), 7500)
                   })
-                  .catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+                  .catch();
 
 
                })

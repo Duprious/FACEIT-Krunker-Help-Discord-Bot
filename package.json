@@ -9,7 +9,7 @@
   "keywords": [],
   "author": "Duprious",
   "engines": {
-    "node": "16.7.0" 
+    "node": "16.7.0"
   },
   "license": "ISC",
   "dependencies": {
