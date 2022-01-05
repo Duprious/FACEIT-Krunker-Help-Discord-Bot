@@ -367,13 +367,6 @@ bot.on('messageCreate', async msg=>{
                })
       }
 
-      async function tournaments() {
-         client.tournaments.get( {game: 'krunker', region: 'eu' }).then( info => {
-            console.log(info)
-         })
-      }
-
-
    switch(args[0]){
 
       case 'profile':
