@@ -10,8 +10,6 @@ var Regex = require("regex");
 const FaceitAPI = require('@cstools-app/faceit-wrapper');
 const client = new FaceitAPI(process.env.FACEITAPIKEY);
 var db = require('quick.db')
-const captureWebsite = require('capture-website');
-
 
 process.on('uncaughtException', function (err) {
    console.error(err);
