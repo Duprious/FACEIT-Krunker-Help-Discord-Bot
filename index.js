@@ -442,7 +442,7 @@ bot.on('messageCreate', async msg=>{
 
         if (db.get(`timer.time`) === 0) {
            msg.channel.send(`<@&928003826026434580> ${msg.author.username} is looking for a teammate`)
-           db.set(`timer`, { time: 300})
+           db.set(`timer`, { time: 180})
         } else {
             var minutes = Math.floor(db.get(`timer.time`) / 60);
             var seconds = db.get(`timer.time`) - minutes * 60;
