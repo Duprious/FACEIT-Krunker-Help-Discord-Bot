@@ -367,6 +367,12 @@ bot.on('messageCreate', async msg=>{
                })
       }
 
+      async function tournaments() {
+         client.tournaments.get( {game: 'krunker', region: 'eu' }).then( info => {
+            console.log(info)
+         })
+      }
+
 
    switch(args[0]){
 
@@ -448,6 +454,11 @@ bot.on('messageCreate', async msg=>{
             var seconds = db.get(`timer.time`) - minutes * 60;
            msg.reply(`Wait for ${minutes} minutes and ${seconds} seconds.`)
         }
+
+      break;
+
+      case 'tournaments':
+         tournaments()
 
    }
 
