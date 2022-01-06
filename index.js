@@ -165,9 +165,9 @@ bot.on('messageCreate', async msg=>{
                         { name: 'Country: ', value: `${String(country).toUpperCase()} | ${countryemoji}`, inline: true},
                         { name: 'Membership: ', value: membership2, inline: true},
                         { name: 'Friends: ', value: String(friends.length), inline: true},
-                        { name: 'Krunker Name: ', value: game_player_name, inline: true},
-                        { name: 'Krunker ELO: ', value: `${String(faceit_elo)} | ${eloneeded} ${nextlvl}`, inline: true},
                         { name: 'Krunker Skill Level: ', value: String(skill_level), inline: true},
+                        { name: 'Krunker ELO: ', value: `${String(faceit_elo)} | ${eloneeded} ${nextlvl}`, inline: true},
+                        { name: 'Krunker Name: ', value: game_player_name, inline: true},
                         { name: `Leaderboard Position ${region}: `, value: `${ordinal(position)}`, inline: true}
                      )
                      .setTimestamp()
