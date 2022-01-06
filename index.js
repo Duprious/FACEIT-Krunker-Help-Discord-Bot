@@ -169,17 +169,17 @@ bot.on('messageCreate', async msg=>{
                      
                   const match_id1 = items[0]['match_id']
                   const region1 = items[0]['region']
-                  const url1 = `https://www.faceit.com/en/krunker/room/${match_id1}`
+                  const url1 = `https://www.faceit.com/${language}/krunker/room/${match_id1}`
                   const score1 = `${items[0]['results']['score']['faction1']} - ${items[0]['results']['score']['faction2']}`
 
                   const match_id2 = items[1]['match_id']
                   const region2 = items[1]['region']
-                  const url2 = `https://www.faceit.com/en/krunker/room/${match_id2}`
+                  const url2 = `https://www.faceit.com/${language}/krunker/room/${match_id2}`
                   const score2 = `${items[1]['results']['score']['faction1']} - ${items[1]['results']['score']['faction2']}`
 
                   const match_id3 = items[2]['match_id']
                   const region3 = items[2]['region']
-                  const url3 = `https://www.faceit.com/en/krunker/room/${match_id3}`
+                  const url3 = `https://www.faceit.com/${language}/krunker/room/${match_id3}`
                   const score3 = `${items[2]['results']['score']['faction1']} - ${items[2]['results']['score']['faction2']}`
 
                   embed.addField("Recent Games: ", statsurl);
