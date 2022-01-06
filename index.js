@@ -182,7 +182,7 @@ bot.on('messageCreate', async msg=>{
                   const url3 = `https://www.faceit.com/${language}/krunker/room/${match_id3}`
                   const score3 = `${items[2]['results']['score']['faction1']} - ${items[2]['results']['score']['faction2']}`
 
-                  embed.addField("Recent Games: ", statsurl);
+                  embed.addField("Recent Games: ", "\u200b");
                   embed.addField('Game 1: ', `Match ID: ${match_id1} \n Region: ${region1} | Score: ${score1} | [Link](${url1})`)
                   embed.addField('Game 2: ', `Match ID: ${match_id2} \n Region: ${region2} | Score: ${score2} | [Link](${url2})`)
                   embed.addField('Game 3: ', `Match ID: ${match_id3} \n Region: ${region3} | Score: ${score3} | [Link](${url3})`)
