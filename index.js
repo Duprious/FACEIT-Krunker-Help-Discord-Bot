@@ -14,6 +14,7 @@ var Regex = require("regex");
 const FaceitAPI = require('@cstools-app/faceit-wrapper');
 const client = new FaceitAPI(process.env.FACEITAPIKEY);
 var db = require('quick.db')
+var ordinal = require('ordinal')
 
 process.on('uncaughtException', function (err) {
    console.error(err);
@@ -67,9 +68,14 @@ bot.on('messageCreate', async msg=>{
                   const { game_player_name, skill_level, faceit_elo } = krunker;
                   const { language } = settings;
 
+                  let region = info['raw']['games']['krunker']['region']
 
                   api
                   .players(player_id, "history").then(data =>  {
+
+                  api.rankings("krunker", region, player_id).then(data3 => {
+
+                     const { position } = data3;
 
 
                   const url = `https://www.faceit.com/${language}/players/${nickname}`
@@ -156,12 +162,13 @@ bot.on('messageCreate', async msg=>{
                         { name: 'FaceIT Profile Name: ', value: nickname },
                         { name: 'Player Page: ', value: url},
                         { name: 'FaceIT Player ID ', value: player_id},
-                        { name: 'Country: ', value: `${String(country).toUpperCase()} | ${countryemoji}`},
-                        { name: 'Membership: ', value: membership2},
-                        { name: 'Friends: ', value: String(friends.length)},
-                        { name: 'Krunker Name: ', value: game_player_name},
-                        { name: 'Krunker ELO: ', value: `${String(faceit_elo)} | ${eloneeded} ${nextlvl}`},
-                        { name: 'Krunker Skill Level: ', value: String(skill_level)},
+                        { name: 'Country: ', value: `${String(country).toUpperCase()} | ${countryemoji}`, inline: true},
+                        { name: 'Membership: ', value: membership2, inline: true},
+                        { name: 'Friends: ', value: String(friends.length), inline: true},
+                        { name: 'Krunker Name: ', value: game_player_name, inline: true},
+                        { name: 'Krunker ELO: ', value: `${String(faceit_elo)} | ${eloneeded} ${nextlvl}`, inline: true},
+                        { name: 'Krunker Skill Level: ', value: String(skill_level), inline: true},
+                        { name: `Leaderboard Position ${region}: `, value: `${ordinal(position)}`, inline: true}
                      )
                      .setTimestamp()
    
@@ -190,6 +197,7 @@ bot.on('messageCreate', async msg=>{
    
                   msg.channel.send({embeds: [embed]});
    
+                  })  
                   })
 
                } catch(err) {
@@ -425,6 +433,18 @@ bot.on('messageCreate', async msg=>{
    switch(args[0]){
 
       case 'profile':
+
+      if (!args[1]) return;
+
+      if (!args[1].match(/^[0-9a-zA-Z_-]+$/)) {
+         msg.channel.send("Only use alphanumeric characters in the username, with excpetion of _ and -")
+         return;
+      }
+      getProfile(args[1])
+
+      break;
+
+      case 'p':
 
       if (!args[1]) return;
 
