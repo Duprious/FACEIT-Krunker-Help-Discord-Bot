@@ -403,6 +403,26 @@ bot.on('messageCreate', async msg=>{
                })
       }
 
+      async function getLeaderboard(region) {
+
+
+         if (region == "EU" || region == "NA" || region == "AS" || region == "OC" || region == "SA" || region == "eu" || region == "na" || region == "as" || region == "oc" || region == "sa") {
+            api.rankings("krunker", region).then( data => {
+
+               const { items } = data;
+
+               const url = `https://www.faceit.com/en/dashboard/rankings`
+
+               // Yea... For loop didn't work
+
+               msg.reply( `${items[0]['nickname']} | Position: ${items[0]['position']} | Country: ${String(items[0]['country']).toUpperCase()} ${countryCodeEmoji(String(items[0]['country']).toUpperCase())} | Elo: ${items[0]['faceit_elo']} | Level: ${items[0]['game_skill_level']} \n\n ${items[1]['nickname']} | Position: ${items[1]['position']} | Country: ${String(items[1]['country']).toUpperCase()} ${countryCodeEmoji(String(items[1]['country']).toUpperCase())} | Elo: ${items[1]['faceit_elo']} | Level: ${items[1]['game_skill_level']} \n\n ${items[2]['nickname']} | Position: ${items[2]['position']} | Country: ${String(items[2]['country']).toUpperCase()} ${countryCodeEmoji(String(items[2]['country']).toUpperCase())} | Elo: ${items[2]['faceit_elo']} | Level: ${items[2]['game_skill_level']} \n\n${items[3]['nickname']} | Position: ${items[3]['position']} | Country: ${String(items[3]['country']).toUpperCase()} ${countryCodeEmoji(String(items[3]['country']).toUpperCase())} | Elo: ${items[3]['faceit_elo']} | Level: ${items[3]['game_skill_level']} \n\n${items[4]['nickname']} | Position: ${items[4]['position']} | Country: ${String(items[4]['country']).toUpperCase()} ${countryCodeEmoji(String(items[4]['country']).toUpperCase())} | Elo: ${items[4]['faceit_elo']} | Level: ${items[4]['game_skill_level']} \n\n${items[5]['nickname']} | Position: ${items[5]['position']} | Country: ${String(items[5]['country']).toUpperCase()} ${countryCodeEmoji(String(items[5]['country']).toUpperCase())} | Elo: ${items[5]['faceit_elo']} | Level: ${items[5]['game_skill_level']} \n\n${items[6]['nickname']} | Position: ${items[6]['position']} | Country: ${String(items[6]['country']).toUpperCase()} ${countryCodeEmoji(String(items[6]['country']).toUpperCase())} | Elo: ${items[6]['faceit_elo']} | Level: ${items[6]['game_skill_level']} \n\n${items[7]['nickname']} | Position: ${items[7]['position']} | Country: ${String(items[7]['country']).toUpperCase()} ${countryCodeEmoji(String(items[7]['country']).toUpperCase())} | Elo: ${items[7]['faceit_elo']} | Level: ${items[7]['game_skill_level']} \n\n${items[8]['nickname']} | Position: ${items[8]['position']} | Country: ${String(items[8]['country']).toUpperCase()} ${countryCodeEmoji(String(items[8]['country']).toUpperCase())} | Elo: ${items[8]['faceit_elo']} | Level: ${items[8]['game_skill_level']} \n\n${items[9]['nickname']} | Position: ${items[9]['position']} | Country: ${String(items[9]['country']).toUpperCase()} ${countryCodeEmoji(String(items[9]['country']).toUpperCase())} | Elo: ${items[9]['faceit_elo']} | Level: ${items[9]['game_skill_level']} `)
+               msg.reply('https://www.faceit.com/en/dashboard/rankings')
+            })
+         }
+
+
+      }
+
    switch(args[0]){
 
       case 'profile':
@@ -441,6 +461,27 @@ bot.on('messageCreate', async msg=>{
          getMatchFromId(args[1]);
 
       break;
+
+      case 'leaderboard':
+
+         if (!args[1]) {
+            msg.reply("Please supply any of the following regions: EU | NA | AS | OC | SA")
+         }
+
+         getLeaderboard(args[1])
+
+      break;
+
+      case 'lb':
+
+         if (!args[1]) {
+            msg.reply("Please supply any of the following regions: EU | NA | AS | OC | SA")
+         }
+
+         getLeaderboard(args[1])
+      
+      break;
+          
 
       case 'w':
          if (!args[1]) return;
