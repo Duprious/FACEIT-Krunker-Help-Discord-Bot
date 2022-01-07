@@ -77,6 +77,10 @@ bot.on('messageCreate', async msg=>{
 
                      const { position } = data3;
 
+                     if (ordinal(position) == "0th") {
+                        position = `Not on ${region} leaderboard at the moment. Check other regions.`
+                     }
+
 
                   const url = `https://www.faceit.com/${language}/players/${nickname}`
                   const statsurl = `https://www.faceit.com/${language}/players-modal/${nickname}/stats/krunker`
