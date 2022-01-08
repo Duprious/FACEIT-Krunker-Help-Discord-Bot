@@ -414,7 +414,7 @@ bot.on('messageCreate', async msg=>{
       async function getLeaderboard(region) {
 
 
-         if (region == "EU" || region == "NA" || region == "AS" || region == "OC" || region == "SA" || region == "eu" || region == "na" || region == "as" || region == "oc" || region == "sa") {
+         if (region == "EU" || region == "NA" || region == "AS" || region == "OC" || region == "SA") {
             api.rankings("krunker", region).then( data => {
 
                const { items } = data;
