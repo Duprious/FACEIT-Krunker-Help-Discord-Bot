@@ -179,20 +179,20 @@ bot.on('messageCreate', async msg=>{
                   const url1 = `https://www.faceit.com/${language}/krunker/room/${match_id1}`
                   const score1 = `${items[0]['results']['score']['faction1']} - ${items[0]['results']['score']['faction2']}`
 
-                  const match_id2 = items[1]['match_id']
-                  const region2 = items[1]['region']
-                  const url2 = `https://www.faceit.com/${language}/krunker/room/${match_id2}`
-                  const score2 = `${items[1]['results']['score']['faction1']} - ${items[1]['results']['score']['faction2']}`
+                  // const match_id2 = items[1]['match_id']
+                  // const region2 = items[1]['region']
+                  // const url2 = `https://www.faceit.com/${language}/krunker/room/${match_id2}`
+                  // const score2 = `${items[1]['results']['score']['faction1']} - ${items[1]['results']['score']['faction2']}`
 
-                  const match_id3 = items[2]['match_id']
-                  const region3 = items[2]['region']
-                  const url3 = `https://www.faceit.com/${language}/krunker/room/${match_id3}`
-                  const score3 = `${items[2]['results']['score']['faction1']} - ${items[2]['results']['score']['faction2']}`
+                  // const match_id3 = items[2]['match_id']
+                  // const region3 = items[2]['region']
+                  // const url3 = `https://www.faceit.com/${language}/krunker/room/${match_id3}`
+                  // const score3 = `${items[2]['results']['score']['faction1']} - ${items[2]['results']['score']['faction2']}`
 
-                  embed.addField("Recent Games: ", "\u200b");
+                  embed.addField("Recent Game: ", "\u200b");
                   embed.addField('Game 1: ', `Match ID: ${match_id1} \n Region: ${region1} | Score: ${score1} | [Link](${url1})`)
-                  embed.addField('Game 2: ', `Match ID: ${match_id2} \n Region: ${region2} | Score: ${score2} | [Link](${url2})`)
-                  embed.addField('Game 3: ', `Match ID: ${match_id3} \n Region: ${region3} | Score: ${score3} | [Link](${url3})`)
+                  // embed.addField('Game 2: ', `Match ID: ${match_id2} \n Region: ${region2} | Score: ${score2} | [Link](${url2})`)
+                  // embed.addField('Game 3: ', `Match ID: ${match_id3} \n Region: ${region3} | Score: ${score3} | [Link](${url3})`)
 
    
                   msg.channel.send({embeds: [embed]});
